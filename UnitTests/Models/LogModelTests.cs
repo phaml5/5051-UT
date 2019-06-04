@@ -39,17 +39,20 @@ namespace UnitTests.Models
         }
 
         [TestMethod]
-        public void LogModel_Update_Invalid_Null_Data_Should_Fail()
+        public void LogModel_Update_Invalid_Null_Data_Should_Pass()
         {
 
-            // Arange
-            var myTest = new LogModel(); 
+            // Arrange
+            var myTest = new LogModel();
+
+            // Remeber the old Phone ID
+            var myTestPhoneID = myTest.PhoneID;
 
             // Act
             var result = myTest.Update(null);
 
             // Assert
-            Assert.AreEqual("abc", myTest.PhoneID);
+            Assert.AreEqual(myTestPhoneID, myTest.PhoneID);
         }
 
         [TestMethod]
