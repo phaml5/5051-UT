@@ -22,6 +22,21 @@ namespace UnitTests.Backend
         }
 
         [TestMethod]
+        public void LogBackend_Index_Default_Should_Pass()
+        {
+            // Should load the dataset with 4 rows
+
+            // Arange
+            var myData = LogBackend.Instance;
+
+            // Act
+            var result = myData.Index().LogList;
+
+            // Assert
+            Assert.AreEqual(4, result.Count);
+        }
+
+        [TestMethod]
         public void LogBackend_Update_First_Item_Should_Pass()
         {
             // Delete the first item from the list, and then check the list to verify it is gone
