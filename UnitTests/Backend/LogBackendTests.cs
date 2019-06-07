@@ -39,8 +39,6 @@ namespace UnitTests.Backend
         [TestMethod]
         public void LogBackend_Update_First_Item_Should_Pass()
         {
-            // Delete the first item from the list, and then check the list to verify it is gone
-
             // Arange
             var myData = LogBackend.Instance;
 
@@ -50,7 +48,6 @@ namespace UnitTests.Backend
 
             // Change the ID
             oldItem.PhoneID = "UpdatedPhone";
-
 
             // Act
             var result = myData.Update(oldItem);
@@ -97,6 +94,19 @@ namespace UnitTests.Backend
         }
 
         [TestMethod]
+        public void LogBackend_Delete_InValid_Bogus_Item_Should_Pass()
+        {
+            // Arange
+            var myData = LogBackend.Instance;
+
+            // Act
+            var newItem = myData.Delete("bogus");
+
+            // Assert
+            Assert.AreEqual(false, newItem);
+        }
+
+        [TestMethod]
         public void LogBackend_Create_Valid_Item_Should_Pass()
         {
             // Arange
@@ -131,8 +141,6 @@ namespace UnitTests.Backend
             // Act
             var newItem = myData.Create(null);
 
-            // Check each item one by one to ensure it is correctly loaded
-
             // Assert
             Assert.AreEqual(null, newItem);
         }
@@ -140,8 +148,6 @@ namespace UnitTests.Backend
         [TestMethod]
         public void LogBackend_Read_Valid_Item_Should_Pass()
         {
-            // Delete the first item from the list, and then check the list to verify it is gone
-
             // Arange
             var myData = LogBackend.Instance;
 
