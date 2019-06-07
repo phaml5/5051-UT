@@ -84,5 +84,18 @@ namespace UnitTests.Backend
             Assert.AreEqual(oldItem.RecordedDateTime, newItem.RecordedDateTime);
             Assert.AreEqual(oldItem.Value, newItem.Value);
         }
+
+        [TestMethod]
+        public void LogBackend_Read_InValid_Bogus_Item_Should_Pass()
+        {
+            // Arange
+            var myData = LogBackend.Instance;
+
+            // Act
+            var newItem = myData.Read("bogus");
+
+            // Assert
+            Assert.AreEqual(null, newItem);
+        }
     }
 }
