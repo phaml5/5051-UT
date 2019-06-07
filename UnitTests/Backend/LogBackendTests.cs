@@ -61,6 +61,23 @@ namespace UnitTests.Backend
         }
 
         [TestMethod]
+        public void LogBackend_Update_InValid_Bogus_Item_Should_Pass()
+        {
+            // Arange
+            var myData = LogBackend.Instance;
+            var oldItem = myData.Index().LogList.First();
+
+            var newItem = new LogModel();
+            newItem.ID = "bogus";
+
+            // Act
+            var result = myData.Update(newItem);
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+        [TestMethod]
         public void LogBackend_Create_Valid_Item_Should_Pass()
         {
             // Arange
