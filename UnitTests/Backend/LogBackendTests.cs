@@ -47,5 +47,20 @@ namespace UnitTests.Backend
             Assert.AreEqual(oldItem.Value, newItem.Value);
         }
 
+        [TestMethod]
+        public void LogBackend_Create_InValid_Null_Should_Fail()
+        {
+            // Arange
+            var myData = LogBackend.Instance;
+
+            // Act
+            var newItem = myData.Create(null);
+
+            // Check each item one by one to ensure it is correctly loaded
+
+            // Assert
+            Assert.AreEqual(null, newItem);
+        }
+
     }
 }
