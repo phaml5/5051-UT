@@ -22,6 +22,30 @@ namespace UnitTests.Backend
         }
 
         [TestMethod]
+        public void LogBackend_Update_First_Item_Should_Pass()
+        {
+            // Delete the first item from the list, and then check the list to verify it is gone
+
+            // Arange
+            var myData = LogBackend.Instance;
+
+            // Get the first item from the list
+            var oldItem = myData.Index().LogList.First();
+            var oldPhoneID = oldItem.PhoneID;
+
+            // Change the ID
+            oldItem.PhoneID = "UpdatedPhone";
+
+
+            // Act
+            var result = myData.Update(oldItem);
+            var newItem = myData.Read(oldItem.ID);
+
+            // Assert
+            Assert.AreNotEqual(oldPhoneID, newItem.PhoneID);
+        }
+
+        [TestMethod]
         public void LogBackend_Create_Valid_Item_Should_Pass()
         {
             // Arange
