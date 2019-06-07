@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backend\LogBackendTests.cs" />
     <Compile Include="Backend\LogRepositoryMockTests.cs" />
     <Compile Include="Models\LogModelTests.cs" />
     <Compile Include="Models\LogViewModelTests.cs" />
